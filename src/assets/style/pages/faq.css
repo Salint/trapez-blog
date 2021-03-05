@@ -1,0 +1,35 @@
+section#faq {
+	width: 800px;
+	margin: 50px auto;
+}
+section#faq article.question {
+	margin-bottom: 25px;
+	padding-bottom: 25px;
+	border-bottom: 1px solid grey;
+}
+section#faq article.question h1 {
+	font-size: 40px;
+	margin-bottom: 20px;
+}
+section#faq article.question p {
+	font-size: 20px;
+}
+section#faq article.question p a {
+	color: rgb(0, 174, 255);
+	text-decoration: none;
+}
+section#faq article.question p a:hover {
+	text-decoration: underline;
+}
+
+@media (max-width: 1000px) {
+	section#faq {
+		width: 90%;
+	}
+	section#faq article.question h1 {
+		font-size: 30px;
+	}
+	section#faq article.question p {
+		font-size: 15px;
+	}
+}

@@ -55,7 +55,7 @@ class Form extends Component {
 				<button
 					disabled={this.state.disabled}
 				>Log In</button>
-				<a href="/why-i-can't-make-an-account">Why can't I make my own account?</a>
+				<a href="/faq">Why can't I make my own account?</a>
 			</section>
 		)
 
