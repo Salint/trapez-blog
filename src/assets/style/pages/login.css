@@ -46,3 +46,29 @@ section#login-form a {
 section#login-form a:hover {
 	text-decoration: underline;
 }
+
+@media (max-width: 1000px) {
+	section#login-form {
+		width: 300px;
+	}
+	section#login-form h1 {
+		font-size: 20px;
+	}
+	section#login-form div label {
+		font-size: 15px;
+	}
+	section#login-form div input {
+		font-size: 10px;
+		width: 200px;
+	}
+	section#login-form button {
+		background: rgb(23, 140, 194);
+		font-size: 10px;
+		width: 40%;
+		padding: 5px 0;
+	}
+	section#login-form a {
+		margin-top: 20px;
+		font-size: 10px;
+	}
+}
