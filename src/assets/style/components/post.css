@@ -33,7 +33,7 @@ article.post div.post-content img {
 }
 @media (max-width: 700px) {
 	article.post {
-		width: 400px;
+		width: 90%;
 	}
 	article.post div.post-author h1 {
 		font-size: 15px;
@@ -46,9 +46,6 @@ article.post div.post-content img {
 	}
 }
 @media (max-width: 400px) {
-	article.post {
-		width: 300px;
-	}
 	article.post div.post-author h1 {
 		font-size: 15px;
 	}
