@@ -1,0 +1,47 @@
+section#not-found {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 700px;
+	margin: 50px auto;
+}
+section#not-found div {
+	margin-right: 50px;
+}
+section#not-found div h2 {
+	font-size: 30px;
+}
+section#not-found div p {
+	font-size: 20px;
+}
+section#not-found div p a {
+	color: rgb(0, 174, 255);
+	text-decoration: none;
+}
+section#not-found div p a:hover {
+	text-decoration: underline;
+}
+section#not-found img {
+	width: 300px;
+}
+@media (max-width: 800px) { 
+	section#not-found {
+		width: 300px;
+		flex-direction: column;
+	}
+	section#not-found div {
+		width: 90%;
+		margin-right: 0;
+		margin-bottom: 40px;
+		text-align: center;
+	}	
+	section#not-found div h2 {
+		font-size: 15px;
+	}
+	section#not-found div p {
+		font-size: 10px;
+	}
+	section#not-found img {
+		width: 200px;
+	}
+}
