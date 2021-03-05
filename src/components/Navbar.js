@@ -13,7 +13,7 @@ class Navbar extends Component {
 		return (
 			<nav>
 				<div id="nav-name">
-					<a href="/"><h1>Trapez Blog</h1></a>
+					<a href="/"><h1>Trapez's Modding Shop</h1></a>
 				</div>
 				<div id="nav-links">
 					<a href="/login">Login</a>
