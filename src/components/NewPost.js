@@ -66,11 +66,14 @@ class NewPost extends Component {
 						status: "Adding mod to database"
 					});
 
+					const date = new Date();
+
 					const document = await firebase.firestore().collection("mods").add({
 						title: this.state.input.title,
 						description: this.state.input.description,
 						imageExtension: this.state.input.image.name.split(".")[1],
-						modExtension: this.state.input.file.name.split(".")[1]
+						modExtension: this.state.input.file.name.split(".")[1],
+						date: `${date.getDay()}/${date.getMonth() + 1}/${date.getFullYear()}`
 					});
 
 					this.setState({
