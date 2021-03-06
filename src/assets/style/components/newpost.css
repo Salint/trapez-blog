@@ -1,0 +1,74 @@
+section#create-post {
+	background: rgb(22, 22, 22);
+	width: 700px;
+	margin: 50px auto;
+	border-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 30px 0;
+}
+section#create-post h1 {
+	font-size: 30px;
+}
+section#create-post div {
+	margin: 20px auto;
+}
+section#create-post div label {
+	color: grey;
+	font-size: 15px;
+	padding-bottom: 10px;
+}
+section#create-post div input[type="text"], section#create-post div textarea {
+	resize: none;
+	font-size: 15px;
+	background: rgb(44, 44, 44);
+	border: none;
+	padding: 5px 15px;
+	width: 500px;
+	outline: none;
+	border: 1px solid rgb(71, 71, 71);
+}
+section#create-post div input[type="file"] {
+	background: rgb(44, 44, 44);
+	padding: 5px 15px;
+	border: 1px solid rgb(71, 71, 71);
+	border-radius: 2px;
+	width: 500px;
+
+}
+section#create-post button {
+	background: rgb(23, 140, 194);
+	font-size: 20px;
+	border: none;
+	outline: none;
+	padding: 10px 40px;
+	
+}
+@media (max-width: 900px) {
+	section#create-post {
+		width: 500px;
+	}
+	section#create-post div input[type="text"] {	
+		width: 300px;
+		font-size: 10px;
+	}
+	section#create-post div input[type="file"] {	
+		width: 300px;
+		font-size: 10px;
+	}
+	section#create-post div textarea  {
+		width: 300px;
+		font-size: 10px;
+	}
+	section#create-post button {
+		font-size: 10px;
+
+	}
+}
+@media (max-width: 700px) {
+	section#create-post {
+		width: 90%;
+	}
+}

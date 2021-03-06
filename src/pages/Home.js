@@ -3,6 +3,7 @@ import React, { Component } from "react";
 // Components
 import Navbar from "../components/Navbar";
 import Post from "../components/Post";
+import NewPost from "../components/NewPost";
 
 import placeholderImage from "../assets/images/placeholder.jpg";
 
@@ -38,6 +39,7 @@ class Home extends Component {
 		return (
 			<>
 				<Navbar />
+				<NewPost />
 				<Posts />
 			</>
 		)
