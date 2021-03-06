@@ -63,7 +63,8 @@ class NewPost extends Component {
 				try {
 					
 					this.setState({
-						status: "Adding mod to database"
+						status: "Adding mod to database",
+						error: ""
 					});
 
 					const date = new Date();
@@ -73,7 +74,7 @@ class NewPost extends Component {
 						description: this.state.input.description,
 						imageExtension: this.state.input.image.name.split(".")[1],
 						modExtension: this.state.input.file.name.split(".")[1],
-						date: `${date.getDay()}/${date.getMonth() + 1}/${date.getFullYear()}`
+						date: date
 					});
 
 					this.setState({
