@@ -31,6 +31,16 @@ section#create-post h3.status {
 	margin-top: 20px;
 	text-align: center;
 }
+section#create-post h3.success {
+	color: lime;
+	font-size: 20px;
+	background: rgba(9, 255, 0, 0.2);
+	border: 1px solid lime;
+	padding: 5px 20px;
+	border-radius: 2px;
+	margin-top: 20px;
+	text-align: center;
+}
 
 section#create-post div {
 	margin: 20px auto;

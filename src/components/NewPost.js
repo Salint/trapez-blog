@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
 import { AuthProvider, IfFirebaseAuthed } from "../context/FirebaseAuthContext";
 import firebase from "../services/FirebaseService";
 
@@ -10,7 +9,7 @@ class NewPost extends Component {
 	state = {
 		error: "",
 		status: "",
-		success: false,
+		success: true,
 		disabled: false,
 		input: {
 			title: "",
@@ -90,7 +89,9 @@ class NewPost extends Component {
 					await firebase.storage().ref(document.id + "/file." + this.state.input.file.name.split(".")[1]).put(this.state.input.file);
 
 					this.setState({
-						success: true
+						success: true,
+						status: "",
+						error: ""
 					});
 
 				}
@@ -123,7 +124,11 @@ class NewPost extends Component {
 						}
 						{ 
 						this.state.status.length > 0 &&
-						<h3 class="status">{this.state.status}<br />Page will be refreshed when done</h3>
+						<h3 class="status">{this.state.status}</h3>
+						}
+						{ 
+						this.state.success &&
+						<h3 class="success">Mod uploaded.<br />Refresh the page.</h3>
 						}
 						<div>
 							<label>Title:</label>
@@ -173,7 +178,6 @@ class NewPost extends Component {
 							onClick={() => this.uploadMod()}
 						>Add your awesome mod!!@!@</button>
 					</section>
-					{ this.state.success && <Redirect path="/" /> }
 				</IfFirebaseAuthed>
 			</AuthProvider>
 		);

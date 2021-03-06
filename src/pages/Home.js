@@ -1,30 +1,62 @@
 import React, { Component } from "react";
+import firebase from "../services/FirebaseService";
 
 // Components
 import Navbar from "../components/Navbar";
 import Post from "../components/Post";
 import NewPost from "../components/NewPost";
 
-import placeholderImage from "../assets/images/placeholder.jpg";
-
 class Posts extends Component {
+
+	state = {
+		mods: [],
+		images: []
+	}
+
+	componentDidMount() {
+
+		(async () => {
+
+			try {
+				const results = await firebase.firestore().collection("mods").get();
+
+				this.setState({
+					mods: results.docs
+				});
+
+				this.state.mods.forEach(async mod => {
+					const image = await firebase.storage().ref(mod.id + "/image." + mod.get("imageExtension")).getDownloadURL();
+
+					this.setState(prev => ({
+						images: [
+							...prev.images,
+							image
+						]
+					}));
+				});
+			}
+			catch (error) {
+				console.log(error);
+			}
+
+		})();
+
+	}
 	
 	render() {
 
 		return (
 			<section id="posts">
-				<Post name="Trapez" date="3/5/2021">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quam id leo in vitae turpis massa. Purus gravida quis blandit turpis. A iaculis at erat pellentesque adipiscing commodo elit at. Cras sed felis eget velit. Sit amet facilisis magna etiam tempor orci. Massa placerat duis ultricies lacus sed turpis tincidunt id. Diam volutpat commodo sed egestas egestas fringilla. Dui id ornare arcu odio ut sem nulla pharetra diam. Nunc sed velit dignissim sodales ut eu. Fames ac turpis egestas integer eget aliquet nibh praesent tristique. Sed faucibus turpis in eu.</p>
-					<img src={placeholderImage} alt="Mod" />
-				</Post>
-				<Post name="Trapez" date="3/5/2021">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quam id leo in vitae turpis massa. Purus gravida quis blandit turpis. A iaculis at erat pellentesque adipiscing commodo elit at. Cras sed felis eget velit. Sit amet facilisis magna etiam tempor orci. Massa placerat duis ultricies lacus sed turpis tincidunt id. Diam volutpat commodo sed egestas egestas fringilla. Dui id ornare arcu odio ut sem nulla pharetra diam. Nunc sed velit dignissim sodales ut eu. Fames ac turpis egestas integer eget aliquet nibh praesent tristique. Sed faucibus turpis in eu.</p>
-					<img src={placeholderImage} alt="Mod" />
-				</Post>
-				<Post name="Trapez" date="3/5/2021">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quam id leo in vitae turpis massa. Purus gravida quis blandit turpis. A iaculis at erat pellentesque adipiscing commodo elit at. Cras sed felis eget velit. Sit amet facilisis magna etiam tempor orci. Massa placerat duis ultricies lacus sed turpis tincidunt id. Diam volutpat commodo sed egestas egestas fringilla. Dui id ornare arcu odio ut sem nulla pharetra diam. Nunc sed velit dignissim sodales ut eu. Fames ac turpis egestas integer eget aliquet nibh praesent tristique. Sed faucibus turpis in eu.</p>
-					<img src={placeholderImage} alt="Mod" />
-				</Post>
+				{ 
+				
+				this.state.mods.map(mod => 
+						<Post name={mod.get("title")} date={"this"}>
+							<p>{mod.get("description")}</p>
+							<img src={this.state.images[this.state.mods.indexOf(mod)]} alt="Mod" />
+						</Post>
+				)
+				
+				}
 			</section>
 		)
 
