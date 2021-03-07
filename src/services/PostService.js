@@ -16,7 +16,7 @@ const getPosts = async () => {
 			posts.push({
 				title: docs[i].get("title"),
 				description: docs[i].get("description"),
-				date: new Date(docs[i].get("date").seconds * 1000),
+				date: docs[i].get("date").toDate(),
 				image: imageURL,
 				file: modLink
 			});

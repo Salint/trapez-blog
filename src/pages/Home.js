@@ -41,8 +41,8 @@ class Posts extends Component {
 				{
 
 					this.state.mods.map(mod => 
-						<Post name={mod.title} date={`${mod.date.getDay()}/${mod.date.getMonth() + 1}/${mod.date.getFullYear()}`}>
-							<p>{mod.description}</p>
+						<Post name={mod.title} date={mod.date.toLocaleDateString()}>
+							<p>{decodeURIComponent(mod.description)}</p>
 							<a href={mod.file}>Download</a>
 							<img src={mod.image} alt="Mod" />
 						</Post>

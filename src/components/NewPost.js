@@ -70,7 +70,7 @@ class NewPost extends Component {
 
 					const document = await firebase.firestore().collection("mods").add({
 						title: this.state.input.title,
-						description: this.state.input.description,
+						description: encodeURIComponent(this.state.input.description),
 						imageExtension: this.state.input.image.name.split(".")[1],
 						modExtension: this.state.input.file.name.split(".")[1],
 						date: date

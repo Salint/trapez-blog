@@ -27,6 +27,7 @@ article.post div.post-content {
 article.post div.post-content p {
 	font-size: 15px;
 	margin-bottom: 40px;
+	white-space: pre-wrap;
 }
 article.post div.post-content a {
 	background: rgb(23, 140, 194);
