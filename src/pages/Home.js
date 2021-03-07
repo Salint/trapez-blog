@@ -44,6 +44,7 @@ class Posts extends Component {
 						<Post name={mod.title} date={`${mod.date.getDay()}/${mod.date.getMonth() + 1}/${mod.date.getFullYear()}`}>
 							<p>{mod.description}</p>
 							<a href={mod.file}>Download</a>
+							<img src={mod.image} alt="Mod" />
 						</Post>
 					)
 
