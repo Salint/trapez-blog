@@ -26,6 +26,15 @@ article.post div.post-content {
 }
 article.post div.post-content p {
 	font-size: 15px;
+	margin-bottom: 40px;
+}
+article.post div.post-content a {
+	background: rgb(23, 140, 194);
+	font-size: 20px;
+	text-decoration: none;
+	cursor: pointer;
+	padding: 10px 20px;
+	border-radius: 5px;
 }
 article.post div.post-content img {
 	width: 100%;
@@ -43,6 +52,10 @@ article.post div.post-content img {
 	}
 	article.post div.post-content p {
 		font-size: 10px;
+	}
+	article.post div.post-content a {
+		font-size: 10px;
+		padding: 5px 10px;
 	}
 }
 @media (max-width: 400px) {
