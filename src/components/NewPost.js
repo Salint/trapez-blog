@@ -9,7 +9,7 @@ class NewPost extends Component {
 	state = {
 		error: "",
 		status: "",
-		success: true,
+		success: false,
 		disabled: false,
 		input: {
 			title: "",

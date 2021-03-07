@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import firebase from "../services/FirebaseService";
+import getPosts from "../services/PostService";
 
 // Components
 import Navbar from "../components/Navbar";
@@ -9,8 +9,7 @@ import NewPost from "../components/NewPost";
 class Posts extends Component {
 
 	state = {
-		mods: [],
-		images: []
+		mods: []
 	}
 
 	componentDidMount() {
@@ -18,22 +17,13 @@ class Posts extends Component {
 		(async () => {
 
 			try {
-				const results = await firebase.firestore().collection("mods").get();
+				
+				const posts = await getPosts();
 
 				this.setState({
-					mods: results.docs
+					mods: posts,
 				});
-
-				this.state.mods.forEach(async mod => {
-					const image = await firebase.storage().ref(mod.id + "/image." + mod.get("imageExtension")).getDownloadURL();
-
-					this.setState(prev => ({
-						images: [
-							...prev.images,
-							image
-						]
-					}));
-				});
+				
 			}
 			catch (error) {
 				console.log(error);
@@ -47,16 +37,18 @@ class Posts extends Component {
 
 		return (
 			<section id="posts">
-				{ 
-				
-				this.state.mods.map(mod => 
-						<Post name={mod.get("title")} date={"this"}>
-							<p>{mod.get("description")}</p>
-							<img src={this.state.images[this.state.mods.indexOf(mod)]} alt="Mod" />
+
+				{
+
+					this.state.mods.map(mod => 
+						<Post name={mod.title} date={`${mod.date.getDay()}/${mod.date.getMonth() + 1}/${mod.date.getFullYear()}`}>
+							<p>{mod.description}</p>
+							<img src={mod.image} alt="Mod" />
 						</Post>
-				)
-				
-				}
+					)
+
+					
+				}	
 			</section>
 		)
 
